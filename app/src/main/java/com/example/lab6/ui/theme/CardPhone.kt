@@ -37,6 +37,7 @@ import com.example.lab6.R
 fun CardPhone(){
     Card(modifier = Modifier.padding(8.dp,50.dp,8.dp,8.dp).
     dropShadow(
+
         shape = RectangleShape,
         block = {
             radius = 10f
