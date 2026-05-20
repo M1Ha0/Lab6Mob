@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
@@ -35,21 +36,52 @@ import com.example.lab6.R
 
 @Composable
 fun CardPhone(){
-    Card(modifier = Modifier.padding(8.dp,50.dp,8.dp,8.dp).
-    dropShadow(
-        shape = RectangleShape,
-        block = {
-            radius = 10f
-        }
-    )
-        .background(MaterialTheme.colorScheme.background))
+    Card(modifier = Modifier.padding(8.dp,50.dp,8.dp,8.dp)
+        .dropShadow(
+            shape = RectangleShape,
+            block = {
+                radius = 10f
+            }
+        )
+        .background(Color.White, shape = RoundedCornerShape(20.dp)))
     {
         Image(
             painter = painterResource(id=R.drawable.phonecar),
             contentDescription = null,
-            modifier = Modifier.fillMaxWidth().height(40.dp)
+            modifier = Modifier.fillMaxWidth().size(200.dp).background(Color.White)
         )
+        Text(text = "iPhone 6", fontSize = 28.sp, modifier = Modifier.padding(start = 10.dp, top = 10.dp))
 
+        Row(modifier = Modifier.width(400.dp).padding(start = 12.dp,top =10.dp)) {
+            Image(
+                painter = painterResource(id=R.drawable.zvezda),
+                contentDescription = null,
+                modifier = Modifier.width(55.dp).padding(end = 4.dp)
+            )
+            Image(
+                painter = painterResource(id=R.drawable.zvezda),
+                contentDescription = null,
+                modifier = Modifier.width(55.dp).padding(end = 4.dp)
+            )
+            Image(
+                painter = painterResource(id=R.drawable.zvezda),
+                contentDescription = null,
+                modifier = Modifier.width(55.dp).padding(end = 4.dp)
+            )
+            Image(
+                painter = painterResource(id=R.drawable.zvezda),
+                contentDescription = null,
+                modifier = Modifier.width(55.dp).padding(end = 4.dp)
+            )
+            Image(
+                painter = painterResource(id=R.drawable.zvezda),
+                contentDescription = null,
+                modifier = Modifier.width(55.dp).padding(end = 4.dp)
+            )
+        }
+        Row(modifier = Modifier.width(400.dp).padding(start = 12.dp,top = 10.dp)){
+            Text(text = "1000")
+        }
     }
 }
 @Preview
