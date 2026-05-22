@@ -7,6 +7,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -79,8 +80,14 @@ fun CardPhone(){
                 modifier = Modifier.width(55.dp).padding(end = 4.dp)
             )
         }
-        Row(modifier = Modifier.width(400.dp).padding(start = 12.dp,top = 10.dp)){
-            Text(text = "1000")
+        Row(modifier = Modifier.width(400.dp).padding(start = 12.dp,top = 30.dp)){
+            Text(text = "1000",fontSize = 28.sp)
+            Spacer(modifier = Modifier.width(240.dp))
+            Image(
+                painter = painterResource(id=R.drawable.garba),
+                contentDescription = null,
+                modifier = Modifier.width(55.dp).padding(end = 4.dp)
+            )
         }
     }
 }
