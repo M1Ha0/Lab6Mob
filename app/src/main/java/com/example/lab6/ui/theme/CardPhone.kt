@@ -4,6 +4,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -20,6 +21,10 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -37,6 +42,8 @@ import com.example.lab6.R
 
 @Composable
 fun CardPhone(){
+    var raiting by remember { mutableIntStateOf(0) }
+
     Card(modifier = Modifier.padding(8.dp,50.dp,8.dp,8.dp)
         .dropShadow(
             shape = RectangleShape,
@@ -54,39 +61,31 @@ fun CardPhone(){
         Text(text = "iPhone 6", fontSize = 28.sp, modifier = Modifier.padding(start = 10.dp, top = 10.dp))
 
         Row(modifier = Modifier.width(400.dp).padding(start = 12.dp,top =10.dp)) {
+            repeat(5) { index ->
             Image(
-                painter = painterResource(id=R.drawable.zvezda),
+                painter = painterResource(
+                    if (index < raiting)
+                        R.drawable.star
+                    else
+                        R.drawable.zvezda
+                ),
                 contentDescription = null,
-                modifier = Modifier.width(55.dp).padding(end = 4.dp)
-            )
-            Image(
-                painter = painterResource(id=R.drawable.zvezda),
-                contentDescription = null,
-                modifier = Modifier.width(55.dp).padding(end = 4.dp)
-            )
-            Image(
-                painter = painterResource(id=R.drawable.zvezda),
-                contentDescription = null,
-                modifier = Modifier.width(55.dp).padding(end = 4.dp)
-            )
-            Image(
-                painter = painterResource(id=R.drawable.zvezda),
-                contentDescription = null,
-                modifier = Modifier.width(55.dp).padding(end = 4.dp)
-            )
-            Image(
-                painter = painterResource(id=R.drawable.zvezda),
-                contentDescription = null,
-                modifier = Modifier.width(55.dp).padding(end = 4.dp)
-            )
+                modifier = Modifier
+                    .size(40.dp)
+                    .padding(end = 2.dp)
+                    .clickable() {
+                        raiting = index + 1
+                    }
+                )
+            }
         }
-        Row(modifier = Modifier.width(400.dp).padding(start = 12.dp,top = 30.dp)){
-            Text(text = "1000",fontSize = 28.sp)
+        Row(modifier = Modifier.width(400.dp).height(76.dp).padding(start = 12.dp,top = 30.dp)){
+            Text(text = "1000$",fontSize = 28.sp, color = Color.Red)
             Spacer(modifier = Modifier.width(240.dp))
             Image(
-                painter = painterResource(id=R.drawable.garba),
+                painter = painterResource(id=R.drawable.g00),
                 contentDescription = null,
-                modifier = Modifier.width(55.dp).padding(end = 4.dp)
+                modifier = Modifier.fillMaxWidth().size(60.dp)
             )
         }
     }
